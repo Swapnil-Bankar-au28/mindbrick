@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>DropDown Dashboard </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+        <div  class="selectBox"><label>Constituency </label>
+        <select  id ='ABC'>
+            <option value ='12, 19, 3, 5, 2, 3'>ABC</option>
+            <option value ='12, 80, 3, 5, 2, 3'>DEF</option>
+            <option value ='12, 100, 3, 5, 2, 3'>GHI</option>
+            <option value ='12, 300, 3, 5, 2, 3'>JKL</option>
+         
+
+        </select>
+    </div>
+   
+        <div class="chartBox" >
+            <h1> Party vise Vote share </h1>
+        <canvas id="myChart" ></canvas>
+        
+        
+        </div>
+        <div class="chartBox" >
+            <h1> Age Groop Vise Proportion </h1>
+        <canvas id="myChart1" ></canvas>
+        
+        
+        </div>
+        
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['XYZ', 'JBC', 'KLM', 'NCS', 'NSP', 'NVS'],
+
+                datasets: [{
+                    label:['XYZ', 'JBC', 'KLM', 'NCS', 'NSP', 'NVS'] ,
+                    data: [12, 19, 3, 5, 2, 50],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2,
+                    padding:2,
+                    margin:2
+                }]
+            },
+            // options: {
+            //     scales: {
+            //         y: {
+            //             beginAtZero: true
+            //         }
+            //     }
+            // }
+        });
+        const ctx1 = document.getElementById('myChart1').getContext('2d');
+        const myChart1 = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['18-30', '30-45', '45-60', '60 +'],
+
+                datasets: [{
+                    label:["age groop"] ,
+                    data: [30,35,48,75],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 2,
+                    padding:2,
+                    margin:2
+                }]
+            },
+            // options: {
+            //     scales: {
+            //         y: {
+            //             beginAtZero: true
+            //         }
+            //     }
+            // }
+        });
+        
+        const ABC =document.getElementById('ABC')
+       ABC.addEventListener('change', ABCTrackr)
+        function ABCTrackr (){
+
+            // console.log(ABC.value.split(' '))
+            const label = ABC.options[ABC.selectedIndex].text;
+            myChart.data.datasets[0].label = label;
+            myChart1.data.datasets[0].label = label;
+            // ABC.value.split(',');
+            myChart.data.datasets[0].data =  ABC.value.split(',');
+            myChart1.data.datasets[0].data =  ABC.value.split(',');
+            myChart.update();
+            myChart1.update();
+        }
+        </script>
+         
+        <script src="" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+.chartBox{
+    width:300px;
+    padding:20px;
+    margin:10px;
+}
+.container{
+    width: 900px;
+    height: auto;
+    padding: 10px;
+    border: 1px solid;
+    display: flex;
+    justify-content:center;
+    /* align-items:center; */
+    float:center;
+}
+/* .selectBox{
+    position: relative;
+
+} */
