@@ -1,19 +1,35 @@
 .chartBox{
-    width:300px;
-    padding:20px;
+    width:200px;
+    padding:10px;
     margin:10px;
+    
+}
+h1{
+    text-align:center;
+    text-transform:uppercase;
+    font-size:40px;
+    text-decoration-line: underline;
+    -moz-text-decoration-line: underline;
 }
 .container{
-    width: 900px;
+    width: 800x;
     height: auto;
     padding: 10px;
     border: 1px solid;
     display: flex;
     justify-content:center;
-    /* align-items:center; */
-    float:center;
+    background-image:linear-gradient(to right, rgba(235, 214, 214, 0), rgba(235,214,214,1));
+    /* align-items:center;
+    float:center; */
+    
 }
 /* .selectBox{
     position: relative;
 
 } */
+div{
+    display:inline;
+
+
+
+}

@@ -14,23 +14,34 @@
     </head>
     <body>
         <div class="container">
-        <div  class="selectBox"><label>Constituency </label>
+        <div  class="selectBox"><label>Constituency for Pary  </label>
         <select  id ='ABC'>
             <option value ='12, 19, 3, 5, 2, 3'>ABC</option>
             <option value ='12, 80, 3, 5, 2, 3'>DEF</option>
             <option value ='12, 100, 3, 5, 2, 3'>GHI</option>
             <option value ='12, 300, 3, 5, 2, 3'>JKL</option>
          
-
+     
         </select>
-    </div>
-   
+       
+            <div  class="selectBox"><label>Constituency  for age groop </label>
+            <select  id ='ABC2'>
+                <option value ='30,40,52,75'>ABC</option>
+                <option value ='31,37,49,71'>DEF</option>
+                <option value ='34,39,48,71'>GHI</option>
+                <option value ='33,41,51,25'>JKL</option>
+             
+    
+            </select>
+  
+        </div>
         <div class="chartBox" >
             <h1> Party vise Vote share </h1>
         <canvas id="myChart" ></canvas>
         
         
         </div>
+        <br>
         <div class="chartBox" >
             <h1> Age Groop Vise Proportion </h1>
         <canvas id="myChart1" ></canvas>
@@ -124,14 +135,25 @@
 
             // console.log(ABC.value.split(' '))
             const label = ABC.options[ABC.selectedIndex].text;
+           
             myChart.data.datasets[0].label = label;
-            myChart1.data.datasets[0].label = label;
+           
             // ABC.value.split(',');
             myChart.data.datasets[0].data =  ABC.value.split(',');
-            myChart1.data.datasets[0].data =  ABC.value.split(',');
+            
             myChart.update();
-            myChart1.update();
+           
         }
+        const ABC2 =document.getElementById('ABC2')
+        ABC2.addEventListener('change', ABC2Trackr)
+        function ABC2Trackr (){
+            const label1 = ABC2.options[ABC2.selectedIndex].text;
+            myChart1.data.datasets[0].label1 = label1;
+            myChart1.data.datasets[0].data =  ABC2.value.split(',');
+            myChart1.update();
+
+        }
+        
         </script>
          
         <script src="" async defer></script>
